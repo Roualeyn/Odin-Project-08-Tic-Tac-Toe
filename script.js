@@ -57,10 +57,50 @@ var gameBoard = (function(gameLogicArg) {
     }
 
     function markBox(x, y) {
-        if (gameArray[y][x] != "X" && gameArray[y][x] != "O") {
+        if (gameArray[y][x] == "") {
             gameArray[y][x] = gameLogic.getCurrentMarker();
+            checkWinners();
             gameLogic.updateCurrentPlayer();
             updateBoard();
+        }
+    }
+
+    function checkWinners() {
+        let symbols = gameLogic.getPlayerSymbols();
+        // Check if either player has won.
+        for (let player of symbols) {
+            let victorious = false;
+            //Check Rows
+            for (let y = 0; y < 3; y++){
+                victorious = (gameArray[y][0] == gameArray[y][1] && gameArray[y][1] == gameArray[y][2] && gameArray[y][2] == player);
+                if (victorious) {
+                    console.log(`The winner is ${player}`);
+                    return victorious;
+                }
+            }
+            // Check Columns
+            for (let x = 0; x < 3; x++){
+                victorious = (gameArray[0][x] == gameArray[1][x] && gameArray[1][x] == gameArray[2][x] && gameArray[2][x] == player);
+                if (victorious) {
+                    console.log(`The winner is ${player}`);
+                    return victorious;
+                }
+            }
+            
+            //Check diagonals
+            victorious = (gameArray[0][0] == gameArray[1][1] && gameArray[1][1] == gameArray[2][2] && gameArray[2][2] == player);
+            if (victorious) {
+                console.log(`The winner is ${player}`);
+                return victorious;
+            }
+            victorious = (gameArray[0][2] == gameArray[1][1] && gameArray[1][1] == gameArray[2][0] && gameArray[2][0] == player);
+            if (victorious) {
+                console.log(`The winner is ${player}`);
+                return victorious;
+            }
+        }
+        if (!gameArray[0].includes("") && !gameArray[1].includes("") && !gameArray[2].includes("")){
+            console.log("There is a tie.");
         }
     }
 
