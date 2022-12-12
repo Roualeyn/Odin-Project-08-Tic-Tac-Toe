@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    justify-content: center;
+    gap: 5px;
+}
+
+.gameBox{
+    background-color: hsl(0, 0%, 50%);
+    width: 100px;
+    height: 100px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border: 5px solid hsl(0, 0%, 30%);
+}
