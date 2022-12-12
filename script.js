@@ -101,8 +101,7 @@ var gameBoard = (function(gameLogicArg) {
     }
 
     return {
-        updateBoard: updateBoard,
-        markBox: markBox
+        updateBoard: updateBoard
     };
 })(gameLogic);
 
