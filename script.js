@@ -52,10 +52,6 @@ var gameBoard = (function(gameLogicArg) {
         currentPlayerSpan.textContent = gameLogic.getCurrentPlayer();
     }
 
-    function getBox(x,y) {
-        return gameArray[y][x];
-    }
-
     function markBox(x, y) {
         if (gameArray[y][x] == "") {
             gameArray[y][x] = gameLogic.getCurrentMarker();
@@ -106,7 +102,6 @@ var gameBoard = (function(gameLogicArg) {
 
     return {
         updateBoard: updateBoard,
-        getBox: getBox,
         markBox: markBox
     };
 })(gameLogic);
