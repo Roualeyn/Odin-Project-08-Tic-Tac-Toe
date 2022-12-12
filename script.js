@@ -3,7 +3,7 @@ var gameLogic = (function() {
     // Module for containing player data and who the current player is.
     let player1 = {name: "Xander", symbol: "X"};
     let player2 = {name: "Oscar", symbol: "O"};
-    let currentMarker = player1.symbol; 
+    let currentMarker; 
 
     function updateCurrentPlayer() {
         currentMarker == player1.symbol ? currentMarker = player2.symbol : currentMarker = player1.symbol;
@@ -14,17 +14,31 @@ var gameLogic = (function() {
     }
 
     function getCurrentPlayer() {
-        if (currentMarker == "X"){
+        if (currentMarker == player1.symbol){
             return player1.name;
         } else {
             return player2.name;
         }
     }
-    
+
+    function getPlayerSymbols() {
+        return [player1.symbol, player2.symbol];
+    }
+
+    function setPlayers(p1, p2) {
+        player1.name = String(p1.name);
+        player1.symbol = String(p1.symbol);
+        player2.name = String(p2.name);
+        player2.symbol = String(p2.symbol);
+        currentMarker = String(p1.symbol);
+    }
+
     return {
         getCurrentMarker: getCurrentMarker,
         updateCurrentPlayer: updateCurrentPlayer,
-        getCurrentPlayer: getCurrentPlayer
+        getCurrentPlayer: getCurrentPlayer,
+        getPlayerSymbols: getPlayerSymbols,
+        setPlayers: setPlayers
     };
 })();
 
@@ -108,5 +122,11 @@ var gameBoard = (function(gameLogicArg) {
 
 
 
-// Initial Code Starts Here
-gameBoard.updateBoard();
+// Initial Code Execution
+document.getElementById("startButton").addEventListener("click", () => {
+    gameLogic.setPlayers({name: document.getElementById("firstPlayerName").value, symbol: document.getElementById("firstPlayerSymbol").value},
+                        {name: document.getElementById("secondPlayerName").value, symbol: document.getElementById("secondPlayerSymbol").value})
+    document.getElementById("ongoingGameDiv").classList.remove("invisible");
+    document.getElementById("newGameDiv").classList.add("invisible");
+    gameBoard.updateBoard();
+})

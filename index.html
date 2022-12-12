@@ -10,9 +10,16 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
-    <p>Current Player: <span id="currentPlayerSpan"></span></p>
-    <div class="gameBoard" id="gameBoard">
-
+    <form id="newGameDiv" method="dialog">
+        <input type="text" id="firstPlayerName" placeholder="First Player's Name" required>
+        <input type="text" id="firstPlayerSymbol" placeholder="First Player's Symbol" maxlength="1" required>
+        <input type="text" id="secondPlayerName" placeholder="Second Player's Name" required>
+        <input type="text" id="secondPlayerSymbol" placeholder="Second Player's Symbol" maxlength="1" required>
+        <button id="startButton">Start Game</button>
+    </form>
+    <div id="ongoingGameDiv" class="invisible">
+        <p>Current Player: <span id="currentPlayerSpan"></span></p>
+        <div class="gameBoard" id="gameBoard"></div>
     </div>
 </body>
 </html>
