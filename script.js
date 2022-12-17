@@ -33,12 +33,17 @@ var gameLogic = (function() {
         currentMarker = String(p1.symbol);
     }
 
+    function resetPlayer() {
+        currentMarker = player1.symbol;
+   }
+
     return {
         getCurrentMarker: getCurrentMarker,
         updateCurrentPlayer: updateCurrentPlayer,
         getCurrentPlayer: getCurrentPlayer,
         getPlayerSymbols: getPlayerSymbols,
-        setPlayers: setPlayers
+        setPlayers: setPlayers,
+        resetPlayer: resetPlayer
     };
 })();
 
@@ -114,8 +119,16 @@ var gameBoard = (function(gameLogicArg) {
         }
     }
 
+    function resetBoard() {
+        gameArray = [['', '', ''],
+                     ['', '', ''],
+                     ['', '', '']];
+        updateBoard();
+    }
+
     return {
-        updateBoard: updateBoard
+        updateBoard: updateBoard,
+        resetBoard: resetBoard
     };
 })(gameLogic);
 
@@ -129,4 +142,9 @@ document.getElementById("startButton").addEventListener("click", () => {
     document.getElementById("ongoingGameDiv").classList.remove("invisible");
     document.getElementById("newGameDiv").classList.add("invisible");
     gameBoard.updateBoard();
+})
+
+document.getElementById("restartButton").addEventListener("click", () => {
+    gameLogic.resetPlayer();
+    gameBoard.resetBoard();
 })

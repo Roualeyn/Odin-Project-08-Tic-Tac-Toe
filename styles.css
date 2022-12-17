@@ -7,7 +7,15 @@ p {
     font-weight: bold;
 }
 
+#ongoingGameDiv {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+}
+
 .gameBoard {
+    grid-column: 1 / 3;
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
@@ -38,4 +46,10 @@ p {
 
 .invisible {
     display: none !important;
+}
+
+#restartButton {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    border-radius: 1rem;
 }
