@@ -53,3 +53,8 @@ p {
     grid-row: 1 / 2;
     border-radius: 1rem;
 }
+
+#winningAnnouncement, #currentPlayerP {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
