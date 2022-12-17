@@ -1,17 +1,70 @@
+:root {
+    --lighestColour: hsl(214, 94%, 93%);
+    --mediumColour: hsl(217, 91%, 60%);
+    --darkestColour: hsl(224, 64%, 33%);
+}
+
+body {
+    background-color: var(--lighestColour);
+}
+
 h1 {
     text-align: center;
+    color: var(--darkestColour);
 }
 
 p {
     text-align: center;
     font-weight: bold;
+    color: var(--darkestColour);
 }
+
+button {
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--darkestColour);
+    color: var(--lighestColour);
+    box-shadow: 2px 2px 4px var(--darkestColour);
+}
+
+.invisible {
+    display: none !important;
+}
+
+/* Form Styling */
+
+#newGameDiv {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 5px;
+}
+
+#startButton {
+    grid-column: 1 / 3;
+}
+
+#firstPlayerName, #secondPlayerName {
+    width: 19ch;
+}
+
+#firstPlayerSymbol, #secondPlayerSymbol {
+    width: 12ch;
+}
+
+input {
+    border: 2px solid var(--darkestColour);
+    border-radius: 5px;
+}
+
+/* Game Styling */
 
 #ongoingGameDiv {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
+    gap: 8px;
 }
 
 .gameBoard {
@@ -24,34 +77,20 @@ p {
 }
 
 .gameBox {
-    background-color: hsl(0, 0%, 50%);
-    width: 100px;
+    color: var(--lighestColour);
+    background-color: var(--mediumColour);
+    border: 5px solid var(--darkestColour);
+    border-radius: 8px;
+    width: 100%;
     height: 100px;
     display: grid;
     align-content: center;
     justify-content: center;
-    border: 5px solid hsl(0, 0%, 30%);
-}
-
-#newGameDiv {
-    display: grid;
-    grid-template-columns: repeat(2, 200px);
-    justify-content: center;
-    gap: 5px;
-}
-
-#startButton {
-    grid-column: 1 / 3;
-}
-
-.invisible {
-    display: none !important;
 }
 
 #restartButton {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    border-radius: 1rem;
 }
 
 #winningAnnouncement, #currentPlayerP {

@@ -1,5 +1,2 @@
 # Tic Tac Toe
-This is a WIP project being made as part of the project work for The Odin Project.
-
-## TODO:
-- Needs styling to look nice.
+This is a Tic Tac Toe game made as part of the project work for [The Odin Project.](https://www.theodinproject.com/)
